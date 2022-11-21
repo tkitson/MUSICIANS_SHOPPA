@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>All services</h1>
+
+  <ul>
+    <% @services.each do |service| %>
+      <li><%= link_to service.genre, service_path(service) %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add a service", new_service_path %>
+</div>
