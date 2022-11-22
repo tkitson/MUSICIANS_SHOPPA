@@ -1,0 +1,27 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  .card {
+    width: 350px;
+    height: 400px;
+    background-color: transparent;
+    border: none;
+
+    img {
+      width: 350px;
+      height: 210px;
+      margin-bottom: 22px;
+      border-radius: 12px;
+      object-fit: cover;
+
+    }
+  }
+}
+
+p {
+  font-size: small;
+}
