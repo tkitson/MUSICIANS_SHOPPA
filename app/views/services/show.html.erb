@@ -1,5 +1,14 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://media.istockphoto.com/id/1331158699/es/foto/hombre-africano-tocando-suavemente-el-piano.jpg?s=1024x1024&w=is&k=20&c=ErUHBkHqNNOq5YI-5se3sG66n1hjV9QPTxFlbloUa4I=');">
-  <div class="container">
-    <h1><%= @service.genre %></h1>
+<div class="screen">
+  <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1477927849362-0fb1e7d59ee6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)">
+    <h2>Hi, I'm <strong><%= "#{@service.user.name} #{@service.user.last_name}" %></strong></h2>
+    <h3><strong><%= "#{@service.genre}" %></strong></h3>
   </div>
+
+  <div class="info">
+    <h3>ABOUT ME</h3>
+    <p><%= "#{@service.details}" %></p>
+    <p><%= "#{@service.price}" "$/day" %></p>
+  </div>
+
+  <div></div>
 </div>
