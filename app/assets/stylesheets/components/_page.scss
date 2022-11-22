@@ -1,0 +1,6 @@
+.page {
+  display: grid;
+  grid-template-columns:repeat(auto-fit,200px); /* same width as child */
+  gap:10px; /* the same gap here */
+  justify-content:center; /* center everything */
+}

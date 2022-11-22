@@ -1,11 +1,19 @@
-<div class="container mt-5">
+<div class="page">
   <h1>All services</h1>
-
-  <ul>
-    <% @services.each do |service| %>
-      <li><%= link_to service.genre, service_path(service) %></li>
-    <% end %>
-  </ul>
-
+    <ul class="card">
+      <% @services.each do |service| %>
+        <li class="service"><%= link_to service.genre, service_path(service) %>
+              <div class="servicewrapper">
+                  <img src="app/assets/images/charliep.jpeg" alt="charlip">
+                    <div>
+                      <h5 class="centertext">Saxophone player</h5>
+                        <div class="servicetext">
+                          <p>Charlie Parker is available for all weddings birthday parties and bar mitzvahs</p>
+                        </div>
+                    </div>
+                </div>
+        </li>
+      <% end %>
+    </ul>
   <%= link_to "Add a service", new_service_path %>
 </div>
