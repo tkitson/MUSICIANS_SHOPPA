@@ -1,21 +1,19 @@
-<div class="page">
-  <h1>All services</h1>
-    <ul class="card">
-      <% @services.each do |service| %>
-        <li class="service"><%= link_to service.genre, service_path(service) %>
-              <div class="servicewrapper">
-                  <img src="app/assets/images/charliep.jpeg" alt="charlip">
-                    <div>
-                      <h5 class="centertext">Saxophone player</h5>
-                        <div class="servicetext">
-                          <p>Charlie Parker is available for all weddings birthday parties and bar mitzvahs</p>
-                        </div>
+<h1 class="centertext-services">All services</h1>
+  <ul class="cards">
+    <% @services.each do |service| %>
+      <li>
+        <div class="card">
+                <%= image_tag "charliep.jpeg", class:"artistpic"%>
+                <div class="centertext">
+                  <h5>Saxophone player</h5>
+                    <div class="servicetext">
+                      <p><%= service.details %></p>
+                        <p>Genre: <%= link_to service.genre, service_path(service) %></p>
                     </div>
                 </div>
-        </li>
-      <% end %>
-    </ul>
-  <%= link_to "Add a service", new_service_path %>
-</div>
+            </div>
+      </li>
+    <% end %>
+  </ul>
+<%= link_to "Add a service", new_service_path %>
 
-<%= render 'services/service' %>
