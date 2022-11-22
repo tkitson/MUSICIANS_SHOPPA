@@ -3,8 +3,6 @@ GIT
   revision: 0ebdde5f876e942bc31a80c728a16774c8596ec5
   branch: main
   specs:
-    faker (3.0.0)
-      i18n (>= 1.8.11, < 2)
 
 GIT
   remote: https://github.com/heartcombo/simple_form.git
