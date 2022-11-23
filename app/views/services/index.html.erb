@@ -3,9 +3,10 @@
     <% @services.each do |service| %>
       <li>
         <div class="card">
-                <%= image_tag "charliep.jpeg", class:"artistpic"%>
+                <%= cl_image_tag service.user.photo.key, height: 300, width: 400, crop: :fill %>
                 <div class="centertext">
-                  <h5>Saxophone player</h5>
+                  <h5><%= service.user.name %></h5>
+                  <h6><%= service.user.last_name %></h6>
                     <div class="servicetext">
                       <p><%= service.details %></p>
                         <p>Genre: <%= link_to service.genre, service_path(service) %></p>
@@ -16,4 +17,3 @@
     <% end %>
   </ul>
 <%= link_to "Add a service", new_service_path %>
-
