@@ -3,3 +3,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :services
 end
+
+#root to: services/index
