@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 User.destroy_all
 Service.destroy_all
@@ -14,13 +15,16 @@ Booking.destroy_all
 
 puts 'Creating 30 fake users...'
 30.times do
+  file = URI.open("https://source.unsplash.com/random/?musician")
   user = User.new(
     name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "123456"
   )
+  user.photo.attach(io: file, filename: "#{user.name}.png", content_type: "image/png")
   user.save!
+  p "#{user.name} created"
 end
 puts 'Finished!'
 
@@ -31,7 +35,7 @@ puts 'Creating 20 fake services...'
     price: rand(1.0..1000.1),
     details: Faker::TvShows::GameOfThrones.quote,
     address: Faker::Address.full_address,
-    user_id: rand(1..20)
+    user: User.all.sample
   )
   service.save!
 end
@@ -43,8 +47,8 @@ puts 'Creating 10 fake bookings...'
     status: [true, false].sample,
     start_date: Faker::Date.between(from: '2022-11-26', to: '2023-01-25'),
     end_date: Faker::Date.between(from: '2022-11-26', to: '2023-01-25'),
-    user_id: rand(1..20),
-    service_id: rand(1..20)
+    user: User.all.sample,
+    service: Service.all.sample
   )
   booking.save!
 end
