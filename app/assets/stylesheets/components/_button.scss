@@ -2,7 +2,6 @@
 /* CSS */
 .button-59 {
   align-items: center;
-  background-color: #fff;
   border: 2px solid #000;
   box-sizing: border-box;
   color: #000;
@@ -47,4 +46,11 @@
   .button-59 {
     min-width: 170px;
   }
+}
+
+.btn {
+  color: #1F1E1E;
+  background-color: rgb(255, 192, 69);
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px black;
 }

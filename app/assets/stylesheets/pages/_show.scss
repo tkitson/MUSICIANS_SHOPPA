@@ -29,9 +29,10 @@ h3 {
 }
 
 .artist-info {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  width: 85%;
+  margin: 30px auto;
 }
 
 .info {
@@ -42,7 +43,6 @@ h3 {
   align-items: center;
   color: #ffffff;
   background-color: #1F1E1E;
-  margin-left: 100px;
   border-radius: 20px;
   justify-content: flex-start;
 }
@@ -52,21 +52,29 @@ h3 {
   background-color: #1F1E1E;
   color: #ffffff;
   border-radius: 20px;
-
+  margin-right: 30px;
+  margin-left: 30px;
+  justify-content: center;
 }
 
 .songs {
   display: flex;
   padding: 20px;
   background-color: #1F1E1E;
-  padding-right: 60px;
   color: #ffffff;
-  margin-right: 100px;
   border-radius: 20px;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .spotify {
   padding: auto;
+}
+
+.new_booking_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }

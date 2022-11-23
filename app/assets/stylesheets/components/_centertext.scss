@@ -1,6 +1,10 @@
 .centertext {
   text-align: center;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  color: white;
+  margin: 20px;
+  height: 100%;
 }
 
 .centertext-services {
@@ -9,5 +13,5 @@
   color:white;
   font-family: 'Inter', sans-serif;
   font-size: 50px;
-  margin: 0;
+  margin: 20px;
 }
