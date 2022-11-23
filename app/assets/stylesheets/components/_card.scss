@@ -1,22 +1,29 @@
 .cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+  // align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  width: 85%;
+  margin: 0 auto;
 
   .card {
-    width: 350px;
-    height: 400px;
-    background-color: transparent;
-    border: none;
+    display: flex;
+    padding: 20px;
+    background-color: #1F1E1E;
+    padding-right: 60px;
+    color: #ffffff;
+    border-radius: 20px;
+    justify-content: center;
+    flex-direction: column;
 
     img {
       width: 350px;
       height: 210px;
       margin-bottom: 22px;
       border-radius: 12px;
-      object-fit: cover;
 
     }
   }
