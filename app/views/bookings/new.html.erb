@@ -1,0 +1,15 @@
+<%= simple_form_for [@service, @booking], url: url_for(action: 'create', controller: 'bookings'), method: 'post' do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="form-inputs">
+    <%= f.input :start_date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
+    <%= f.input :end_date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

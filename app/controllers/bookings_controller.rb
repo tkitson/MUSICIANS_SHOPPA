@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
+  before_action :set_service, only: [:new, :create]
+
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def new
@@ -9,7 +11,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
+    @booking.user = current_user
+    @booking.service = @service
+    if @booking.save!
       redirect_to bookings_path
     else
       render :new
@@ -21,7 +25,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
-end
 
   def confirm
     @booking = Booking.find(params[:id])
@@ -33,6 +36,10 @@ end
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
+  end
+
+  def set_service
+    @service = Service.find(params[:service_id])
   end
 end
