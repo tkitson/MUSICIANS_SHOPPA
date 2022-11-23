@@ -1,5 +1,5 @@
 <div class="screen">
-  <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1477927849362-0fb1e7d59ee6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)">
+  <div class="banner" style="background-image: url(<%= cl_image_path @service.user.photo.key %>)">
     <h2>Hi, I'm <strong><%= "#{@service.user.name} #{@service.user.last_name}" %></strong></h2>
     <h3><strong><%= "#{@service.genre}" %></strong></h3>
   </div>
@@ -7,7 +7,7 @@
   <div class="info">
     <h3>ABOUT ME</h3>
     <p><%= "#{@service.details}" %></p>
-    <p><%= "#{@service.price}" "$/day" %></p>
+    <p><%= "#{@service.price.to_i}" "$/day" %></p>
   </div>
 
   <div></div>
