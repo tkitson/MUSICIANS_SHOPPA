@@ -2,6 +2,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
+    @services = policy_scope(Service)
     if params[:query].present?
       sql_query = <<~SQL
         services.genre @@ :query
@@ -20,6 +21,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    authorize @service
     @booking = Booking.new
     unless @service.user.spotify_link.present?
       @service.user.spotify_link = "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb?si=HtTDHexFQLSbh1NG93L3hw"
@@ -41,9 +43,11 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    authorize @service
   end
 
   def update
+    authorize @service
     if @service.update(service_params)
       redirect_to service_path(@service)
     else
@@ -52,8 +56,9 @@ class ServicesController < ApplicationController
   end
 
   def destroy
+    authorize @service
     @service.destroy
-    redirect_to service_path, status: :see_other
+    redirect_to services_path, status: :see_other
   end
 
   private
