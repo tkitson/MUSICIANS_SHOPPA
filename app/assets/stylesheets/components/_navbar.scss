@@ -20,11 +20,15 @@
 .navbar-brand {
   display: flex;
   justify-content: space-evenly;
-  justify-items: flex-end;
+  align-items: baseline;
 }
 
 .nav-link {
   color: white;
+}
+
+.nav-link:hover {
+  color: orange !important;
 }
 
 h5 {
