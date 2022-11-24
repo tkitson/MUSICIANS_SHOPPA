@@ -1,4 +1,7 @@
-<h1 class="centertext-services">All services</h1>
+<h1 class="centertext-services">
+   <i class="fa-solid fa-microphone-lines"></i>
+    <strong>Check out our artists</strong>
+ </h1>
 <%= form_with url: services_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -14,11 +17,11 @@
           <div class="card">
                   <%= cl_image_tag service.user.photo.key %>
                   <div class="centertext">
-                    <h5><%= service.user.name %></h5>
-                    <h6><%= service.user.last_name %></h6>
+                    <h5>
+                     <strong><%= service.user.name %></strong>
+                    </h5>
                       <div class="servicetext">
-                        <p><%= service.details %></p>
-                          <p>Genre: <%= service.genre %></p>
+                          <h3><%= service.genre %></h3>
                       </div>
                     </div>
               </div>
