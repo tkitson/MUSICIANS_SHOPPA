@@ -3,6 +3,12 @@ class ServicesController < ApplicationController
 
   def index
     @services = policy_scope(Service)
+    @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude
+      }
+    end
     if params[:query].present?
       sql_query = <<~SQL
         services.genre @@ :query
