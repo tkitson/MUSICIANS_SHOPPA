@@ -3,5 +3,10 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  bottom: 0;
+  background-color: black;
+  color: white;
+}
+
+.bg-light {
+  background-color: transparent !important;
 }

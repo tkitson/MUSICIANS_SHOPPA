@@ -17,6 +17,17 @@
   width: 40px;
 }
 
+.navbar-brand {
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: flex-end;
+}
+
 .nav-link {
   color: white;
+}
+
+h5 {
+  color: white;
+  font-family: 'Inter', sans-serif;
 }
