@@ -11,6 +11,11 @@
       <p><%= "#{@service.price.to_i}" "$/day" %></p>
     </div>
 
+    <% if policy(@service).edit? %>
+      <%= link_to "Edit this service", edit_service_path(@service) %> |
+    <% end %>
+    <%= button_to "Destroy this service", @service, method: :delete if policy(@service).destroy? %>
+
     <div class="bookings">
       <h3>MAKE A BOOKING</h3>
       <%= render "newbooking" %>
