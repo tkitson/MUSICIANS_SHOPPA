@@ -8,6 +8,15 @@ h1 {
   color: white;
 }
 
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+
 .booking-title {
   display: flex;
   justify-content: center;
@@ -20,11 +29,10 @@ h1 {
 font-family: 'Inter', sans-serif;
 display: flex;
 justify-content: space-between;
-width: 50%;
-margin: 5px auto 5px auto;
 background-color: rgb(33, 33, 33);
 align-items: center;
 border-radius: 10px;
+margin: 10px 0;
 }
 
 .booking-text {
@@ -38,6 +46,7 @@ border-radius: 10px;
   height: 200px;
   width: 200px;
   object-fit: cover;
+  border-radius: 0 10px 10px 0;
 }
 
 p {

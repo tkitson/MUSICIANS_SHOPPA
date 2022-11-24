@@ -2,12 +2,30 @@
   <h1>Recent Bookings</h1>
 </div>
 
-<% @bookings.each do |booking| %>
-  <div class="booking-card">
-    <div class="booking-text">
-         <h3><%= booking.service.user.name %></h3>
-          <p> <i class="fa-solid fa-music"></i> <%= booking.service.genre %></p>
+<div class="booking-grid">
+<div>
+  <% @bookings.each do |booking| %>
+    <div class="booking-card">
+      <div class="booking-text">
+          <h3><%= booking.service.user.name %></h3>
+            <p> <i class="fa-solid fa-music"></i> <%= booking.service.genre %></p>
+      </div>
+      <%= cl_image_tag(booking.service.user.photo.key, class: "booking-img") %>
     </div>
-    <%= cl_image_tag(booking.service.user.photo.key, class: "booking-img") %>
-  </div>
-<% end %>
+  <% end %>
+</div>
+
+<div>
+  <% @bookings.each do |booking| %>
+    <div class="booking-card">
+      <div class="booking-text">
+          <h3><%= booking.service.user.name %></h3>
+            <p> <i class="fa-solid fa-music"></i> <%= booking.service.genre %></p>
+      </div>
+      <%= cl_image_tag(booking.service.user.photo.key, class: "booking-img") %>
+    </div>
+  <% end %>
+</div>
+
+
+</div>
