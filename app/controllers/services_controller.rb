@@ -2,7 +2,17 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = Service.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        services.genre @@ :query
+        OR services.details @@ :query
+        OR users.name @@ :query
+        OR users.last_name @@ :query
+      SQL
+      @services = Service.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @services = Service.all
+    end
   end
 
   def user_index
@@ -11,6 +21,9 @@ class ServicesController < ApplicationController
 
   def show
     @booking = Booking.new
+    unless @service.user.spotify_link.present?
+      @service.user.spotify_link = "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb?si=HtTDHexFQLSbh1NG93L3hw"
+    end
   end
 
   def new
