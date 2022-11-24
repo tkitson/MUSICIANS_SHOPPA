@@ -1,4 +1,12 @@
 <h1 class="centertext-services">All services</h1>
+<%= form_with url: services_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a musician"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   <ul class="cards">
     <% @services.each do |service| %>
       <%= link_to service_path(service) do %>
@@ -12,9 +20,8 @@
                         <p><%= service.details %></p>
                           <p>Genre: <%= service.genre %></p>
                       </div>
-                  </div>
+                    </div>
               </div>
-
       <% end %>
     <% end %>
   </ul>
