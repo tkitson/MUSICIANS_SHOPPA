@@ -46,6 +46,8 @@ h3 {
   align-items: center;
   color: #ffffff;
   justify-content: flex-start;
+  max-height: 400px;
+  overflow: scroll;
 }
 
 .bookings {
@@ -75,5 +77,11 @@ h3 {
   justify-content: space-between;
   height: 100%;
 }
+
+.edit-delete {
+  display: flex;
+  width: 20%;
+}
+
 
 // background-color: #1F1E1E;

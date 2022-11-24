@@ -2,10 +2,10 @@
    <i class="fa-solid fa-microphone-lines"></i>
     <strong>Check out our artists</strong>
  </h1>
-<%= form_with url: services_path, method: :get, class: "d-flex" do %>
+<%= form_with url: services_path, method: :get, class: "d-flex search" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control search-color",
     placeholder: "Find a musician"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>

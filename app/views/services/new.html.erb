@@ -2,10 +2,11 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-services">
     <%= f.input :genre %>
     <%= f.input :price %>
     <%= f.input :details %>
+    <%= f.input :spotify_link, label: "Spotify" %>
   </div>
 
   <div class="form-actions">
