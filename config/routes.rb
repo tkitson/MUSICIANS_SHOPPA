@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index]
 
+  get "/my_services", to: "services#user_index"
+
 end
 
 #root to: services/index

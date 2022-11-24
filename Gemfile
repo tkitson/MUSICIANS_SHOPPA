@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem "pundit"
+
 gem "font-awesome-sass", "~> 6.1"
 
 # Use postgresql as the database for Active Record
@@ -65,6 +67,8 @@ gem "sassc-rails"
 gem "autoprefixer-rails"
 
 gem "simple_form", github: "heartcombo/simple_form"
+
+gem "pg_search"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
