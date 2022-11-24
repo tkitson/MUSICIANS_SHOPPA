@@ -5,6 +5,10 @@ class ServicesController < ApplicationController
     @services = Service.all
   end
 
+  def user_index
+    @services = Service.where(user_id: current_user)
+  end
+
   def show
     @booking = Booking.new
   end
