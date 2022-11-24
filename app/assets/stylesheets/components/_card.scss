@@ -21,6 +21,10 @@
     border-radius: 20px;
     flex-direction: column;
     height: 100%;
+      p, h1 {
+        font-size: small;
+        font-family: 'Inter', sans-serif;
+      }
 
     img {
       margin-bottom: 22px;
@@ -30,9 +34,4 @@
       object-fit: cover;
     }
   }
-}
-
-p, h1 {
-  font-size: small;
-  font-family: 'Inter', sans-serif;
 }
