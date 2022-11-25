@@ -34,7 +34,7 @@ puts 'Creating 20 fake services...'
     genre: Faker::Music.genre,
     price: rand(1.0..1000.1),
     details: Faker::TvShows::GameOfThrones.quote,
-    address: Faker::Address.street_address,
+    address: Faker::Address.state,
     user: User.all.sample
   )
   service.save!
