@@ -11335,6 +11335,7 @@ header.masthead .masthead-content {
 }
 header.masthead .masthead-content .masthead-heading {
   font-size: 4rem;
+  font-family: 'Inter', sans-serif;;
 }
 header.masthead .masthead-content .masthead-subheading {
   font-size: 2rem;

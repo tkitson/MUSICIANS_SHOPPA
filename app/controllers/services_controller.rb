@@ -25,8 +25,8 @@ class ServicesController < ApplicationController
     @marker = [{ lat: @service.latitude, lng: @service.longitude }]
 
     @booking = Booking.new
-    unless @service.user.spotify_link.present?
-      @service.user.spotify_link = "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb?si=HtTDHexFQLSbh1NG93L3hw"
+    unless @service.spotify_link.present?
+      @service.spotify_link = "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb?si=HtTDHexFQLSbh1NG93L3hw"
     end
   end
 
@@ -66,7 +66,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:genre, :price, :details)
+    params.require(:service).permit(:genre, :price, :details, :spotify_link)
   end
 
   def set_service

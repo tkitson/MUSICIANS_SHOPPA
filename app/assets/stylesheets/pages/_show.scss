@@ -33,12 +33,14 @@ h3 {
 
 .artist-info {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr;
   width: 85%;
   margin: 10px auto;
+  column-gap: 20px;
 }
 
 .info {
+  font-family: 'Inter', sans-serif;
   padding: 20px;
   display: flex;
   justify-content: end;
@@ -46,19 +48,24 @@ h3 {
   align-items: center;
   color: #ffffff;
   justify-content: flex-start;
+  max-height: 400px;
+  overflow: scroll;
+  background-color: rgba(255,192,69,0.15);
+  border-radius: 5px;
 }
 
 .bookings {
-  padding: 20px;
-  color: #ffffff;
-  margin-right: 5px;
-  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  color: #ffffff;
+  background-color: rgba(255,192,69,0.15);
+  font-family: 'Inter', sans-serif;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .songs {
-  display: flex;
-  padding: 20px;
   color: #ffffff;
   justify-content: center;
   flex-direction: column;
@@ -75,5 +82,11 @@ h3 {
   justify-content: space-between;
   height: 100%;
 }
+
+.edit-delete {
+  display: flex;
+  width: 20%;
+}
+
 
 // background-color: #1F1E1E;

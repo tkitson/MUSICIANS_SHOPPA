@@ -6,9 +6,11 @@
 
   <div class="artist-info">
     <div class="info">
-
       <p><%= "#{@service.details}" %></p>
       <p><%= "#{@service.price.to_i}" "$/day" %></p>
+
+    </div>
+
     <% if policy(@service).edit? %>
       <%= link_to "Edit this service", edit_service_path(@service) %> |
     <% end %>
@@ -17,14 +19,21 @@
     </div>
 
     <div class="songs">
-      <iframe style="border-radius:12px" src="<%= @service.user.spotify_link.gsub(/spotify.com/, "spotify.com/embed") %>" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="spotify"></iframe>
+      <iframe style="border-radius:12px" src="<%= @service.spotify_link.gsub(/spotify.com/, "spotify.com/embed") %>" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="spotify"></iframe>
     </div>
 
     <div class="bookings">
-      <h4>Let's</h4>
       <%= render "newbooking" %>
     </div>
-  <div></div>
+
+      <div class="edit-delete">
+        <% if policy(@service).edit? %>
+          <%= link_to "Edit this service", edit_service_path(@service)%>
+        <% end %>
+          <%= button_to "Delete my service", @service, method: :delete if policy(@service).destroy?%>
+      </div>
+    </div>
+
 </div>
     <div style="width: 85%; height: 450px; margin: 10px auto"
       data-controller="mapping"

@@ -51,5 +51,17 @@
 .btn {
   color: #1F1E1E;
   background-color: rgb(255, 192, 69);
-  box-shadow: 2px 2px 6px grey;
+}
+
+.services-button {
+  display: flex;
+  color: #1F1E1E;
+  background-color: rgb(255, 192, 69);
+  width: 10%;
+  text-decoration: none;
+  padding: 16px;
+  margin: auto;
+  font-size: 18px;
+  border-radius: 5px;
+  justify-content: center;
 }
