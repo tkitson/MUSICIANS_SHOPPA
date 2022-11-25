@@ -66,7 +66,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:genre, :price, :details, :spotify_link)
+    params.require(:service).permit(:genre, :price, :details, :address, :spotify_link)
   end
 
   def set_service
