@@ -17,16 +17,15 @@
     <div class="bookings">
       <%= render "newbooking" %>
     </div>
+  </div>
 
-      <div class="edit-delete">
-        <% if policy(@service).edit? %>
-          <%= link_to "Edit this service", edit_service_path(@service)%>
-          <%= button_to "Delete my service", @service, method: :delete if policy(@service).destroy?%>
-        <% end %>
-      </div>
+    <div class="update">
+      <% if policy(@service).edit? %>
+        <%= link_to "Edit this service", edit_service_path(@service), class: "btn"%>
+        <%= button_to "Delete my service", @service, class:"btn", method: :delete if policy(@service).destroy?%>
+      <% end %>
     </div>
 
-  <div></div>
 </div>
     <div style="width: 85%; height: 450px; margin: 10px auto"
       data-controller="mapping"
