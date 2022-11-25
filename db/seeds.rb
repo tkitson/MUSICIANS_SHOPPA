@@ -13,8 +13,8 @@ User.destroy_all
 Service.destroy_all
 Booking.destroy_all
 
-puts 'Creating 30 fake users...'
-30.times do
+puts 'Creating 60 fake users...'
+60.times do
   file = URI.open("https://source.unsplash.com/random/?musician")
   user = User.new(
     name: Faker::Name.first_name,
@@ -28,8 +28,8 @@ puts 'Creating 30 fake users...'
 end
 puts 'Finished!'
 
-puts 'Creating 20 fake services...'
-20.times do
+puts 'Creating 60 fake services...'
+60.times do
   service = Service.new(
     genre: Faker::Music.genre,
     price: rand(1.0..1000.1),
@@ -41,8 +41,8 @@ puts 'Creating 20 fake services...'
 end
 puts 'Finished!'
 
-puts 'Creating 10 fake bookings...'
-10.times do
+puts 'Creating 60 fake bookings...'
+60.times do
   booking = Booking.new(
     status: [true, false].sample,
     start_date: Faker::Date.between(from: '2022-11-26', to: '2023-01-25'),
