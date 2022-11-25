@@ -22,6 +22,8 @@ class ServicesController < ApplicationController
 
   def show
     authorize @service
+    @marker = [{ lat: @service.latitude, lng: @service.longitude }]
+
     @booking = Booking.new
     unless @service.user.spotify_link.present?
       @service.user.spotify_link = "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb?si=HtTDHexFQLSbh1NG93L3hw"

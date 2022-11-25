@@ -9,29 +9,25 @@
 
       <p><%= "#{@service.details}" %></p>
       <p><%= "#{@service.price.to_i}" "$/day" %></p>
-    </div>
-
-
     <% if policy(@service).edit? %>
       <%= link_to "Edit this service", edit_service_path(@service) %> |
     <% end %>
     <%= button_to "Destroy this service", @service, method: :delete if policy(@service).destroy? %>
 
-    <div class="songs">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/4oLeXFyACqeem2VImYeBFe?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="spotify"></iframe>
     </div>
 
+    <div class="songs">
+      <iframe style="border-radius:12px" src="<%= @service.user.spotify_link.gsub(/spotify.com/, "spotify.com/embed") %>" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="spotify"></iframe>
+    </div>
 
     <div class="bookings">
       <h4>Let's</h4>
       <%= render "newbooking" %>
     </div>
-
-
-    <div class="songs">
-      <h3>SONGS</h3>
-      <iframe style="border-radius:12px" src="<%= @service.user.spotify_link.gsub(/spotify.com/, "spotify.com/embed") %>" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="spotify"></iframe>
-    </div>
-  </div>
   <div></div>
 </div>
+    <div style="width: 85%; height: 450px; margin: 10px auto"
+      data-controller="mapping"
+      data-mapping-marker-value="<%= @marker.to_json %>"
+      data-mapping-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
