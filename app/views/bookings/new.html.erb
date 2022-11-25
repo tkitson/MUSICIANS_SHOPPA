@@ -3,13 +3,15 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <div class ="bookings-form">
+    <div class="form-inputs">
+      <%= f.input :start_date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
+      <%= f.input :end_date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :start_date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
-    <%= f.input :end_date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>
