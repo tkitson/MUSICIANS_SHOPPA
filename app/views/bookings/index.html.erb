@@ -4,11 +4,22 @@
 
 <div class="booking-grid">
 <div>
+<h2>My bookings</h2>
+<p>The bookings I have done to other musicians.</p>
   <% @bookings.each do |booking| %>
     <div class="booking-card">
       <div class="booking-text">
           <h3><%= booking.service.user.name %></h3>
             <p> <i class="fa-solid fa-music"></i> <%= booking.service.genre %></p>
+            <p>From <%= booking.start_date.strftime('%a %d %b %Y') %></p>
+            <p>To <%= booking.end_date.strftime('%a %d %b %Y') %></p>
+            <% if booking.status == true %>
+            <p>Accepted</p>
+            <% elsif booking.status == false %>
+            <p>Rejected</p>
+            <% else %>
+            <p>Pending</p>
+            <% end %>
       </div>
       <%= cl_image_tag(booking.service.user.photo.key, class: "booking-img") %>
     </div>
@@ -16,16 +27,21 @@
 </div>
 
 <div>
-  <% @bookings.each do |booking| %>
+<h2>My appointments</h2>
+<p>The requests of students that have done to me.</p>
+  <% @received_bookings.each do |booking| %>
+  <% booking.each do |booking| %>
     <div class="booking-card">
       <div class="booking-text">
-          <h3><%= booking.service.user.name %></h3>
-            <p> <i class="fa-solid fa-music"></i> <%= booking.service.genre %></p>
+          <h3><%= booking.user.name %>  <%= booking.user.last_name %></h3>
+          <p>From <%= booking.start_date.strftime('%a %d %b %Y') %></p>
+          <p>To <%= booking.end_date.strftime('%a %d %b %Y') %></p>
+          <%= link_to "Accept", booking_path(booking, status: true), data: { turbo_method: :patch } %>
+          <%= link_to "Reject", booking_path(booking, status: false), data: { turbo_method: :patch } %>
       </div>
-      <%= cl_image_tag(booking.service.user.photo.key, class: "booking-img") %>
+      <%= cl_image_tag(booking.user.photo.key, class: "booking-img") %>
     </div>
+    <% end %>
   <% end %>
 </div>
-
-
 </div>

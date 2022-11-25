@@ -8,6 +8,14 @@
     <div class="info">
       <p><%= "#{@service.details}" %></p>
       <p><%= "#{@service.price.to_i}" "$/day" %></p>
+
+    </div>
+
+    <% if policy(@service).edit? %>
+      <%= link_to "Edit this service", edit_service_path(@service) %> |
+    <% end %>
+    <%= button_to "Destroy this service", @service, method: :delete if policy(@service).destroy? %>
+
     </div>
 
     <div class="songs">
@@ -25,4 +33,10 @@
           <%= button_to "Delete my service", @service, method: :delete if policy(@service).destroy?%>
       </div>
     </div>
+
 </div>
+    <div style="width: 85%; height: 450px; margin: 10px auto"
+      data-controller="mapping"
+      data-mapping-marker-value="<%= @marker.to_json %>"
+      data-mapping-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>

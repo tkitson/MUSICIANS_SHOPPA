@@ -3,6 +3,13 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = current_user.bookings
+    @received_bookings = current_user.services.map { |service| service.bookings }
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = params[:status]
+    @booking.save
   end
 
   def new
